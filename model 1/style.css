@@ -1,0 +1,268 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'DM Serif Display', serif;
+overflow-x:hidden;
+background:linear-gradient(180deg,#ffd6e8,#ffc1dc,#ffb3d5,#f8a8c8);
+color:#fff;
+}
+
+.section{
+min-height:100vh;
+padding:120px 10%;
+position:relative;
+}
+
+.section.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* NAVBAR */
+.navbar{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:90%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:10px 30px;
+backdrop-filter:blur(15px);
+background:rgba(255,255,255,0.15);
+border-radius:50px;
+z-index:1000;
+}
+
+.logo{
+font-size:50px;
+color:#ff69b4;
+font-weight:bold;
+}
+
+.navbar ul{
+display:flex;
+gap:40px;
+list-style:none;
+}
+
+.navbar a{
+text-decoration:none;
+color:white;
+transition:.3s;
+}
+
+.navbar a:hover{
+color:#222;
+}
+
+/* HOME */
+.home{
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+.hero-image{
+position:absolute;
+width:105%;
+height:105%;
+object-fit:cover;
+object-position: center 30%;
+animation:float 12s infinite alternate ease-in-out;
+}
+
+@keyframes float{
+0%{transform:translate(0,0);}
+25%{transform:translate(-10px,10px);}
+50%{transform:translate(10px,-10px);}
+75%{transform:translate(-5px,-5px);}
+100%{transform:translate(5px,5px);}
+}
+
+.hero-text{
+position:relative;
+text-align:center;
+z-index:2;
+}
+
+.hero-text h1{
+font-size:70px;
+color:white;
+}
+
+/* TITLES */
+.section-title{
+position:absolute;
+top:40px;
+left:10%;
+font-size:40px;
+font-weight:bold;
+color:white;
+}
+
+/* GLASS BOX */
+.glass-box{
+background:rgba(255,255,255,0.2);
+backdrop-filter:blur(20px);
+padding:50px;
+border-radius:30px;
+line-height:1.8;
+font-size:20px;
+white-space:pre-line;
+}
+
+/* TIMELINE */
+/* TIMELINE */
+/* ===== TIMELINE ===== */
+
+.timeline {
+    position: relative;
+    margin-top: 120px;
+    padding: 80px 0;
+}
+
+/* Center vertical line */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #d36a8a;
+    transform: translateX(-50%);
+}
+
+/* Timeline item wrapper */
+.timeline-item {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin: 100px 0;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: 0.6s ease;
+}
+
+/* Show state */
+.timeline-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Left content */
+.timeline-item:nth-child(odd) .timeline-content {
+    width: 45%;
+    text-align: right;
+}
+
+/* Right content */
+.timeline-item:nth-child(even) .timeline-content {
+    width: 45%;
+    text-align: left;
+    margin-left: auto;
+}
+
+/* Dot */
+.timeline-dot {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 18px;
+    height: 18px;
+    background: #d36a8a;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+
+/* Glass box */
+.timeline-content {
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(20px);
+    padding: 25px;
+    border-radius: 25px;
+    line-height: 1.6;
+}
+/* ===== MEMORIES IMAGES ===== */
+
+.memory-images {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.memory-images img {
+    width: 100%;
+    border-radius: 25px;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+
+/* Long image below */
+.memory-images img.wide {
+    grid-column: span 3;
+}
+/* ===== GALLERY (Controlled Mess Style) ===== */
+
+.gallery-grid {
+    column-count: 4;
+    column-gap: 8px;
+    margin-top: 100px;
+}
+
+.gallery-grid img {
+    width: 100%;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    display: block;
+    break-inside: avoid;
+    object-fit: cover;
+    transition: 0.35s ease;
+    
+    /* faint separators */
+    outline: 1px solid rgba(255,255,255,0.18);
+    outline-offset: -1px;
+}
+
+/* subtle hover */
+.gallery-grid img:hover {
+    transform: scale(1.015);
+}
+
+/* PARTICLES */
+#particles{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+}
+@media (max-width: 1000px) {
+    .gallery-grid {
+        column-count: 3;
+    }
+}
+
+@media (max-width: 700px) {
+    .gallery-grid {
+        column-count: 2;
+    }
+}
+
+@media (max-width: 500px) {
+    .gallery-grid {
+        column-count: 1;
+    }
+}
